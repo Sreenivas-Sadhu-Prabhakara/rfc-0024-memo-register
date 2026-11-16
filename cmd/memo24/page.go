@@ -1,0 +1,55 @@
+package main
+
+import "html/template"
+
+var page = template.Must(template.New("report").Parse(`<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Title}} | RFC 24 Distribution Audit</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f4f6f9;color:#152741;font:1rem/1.55 system-ui,sans-serif}
+main{max-width:62rem;margin:auto;padding:clamp(1rem,5vw,3.5rem)}
+header{border-bottom:2px solid #bac9dd;padding-bottom:1rem}
+h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.1;margin:.35rem 0}
+h2{margin:1.5rem 0 .5rem}
+header p{margin:.65rem 0}
+dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));gap:.65rem}
+dl div,table{background:white;border:1px solid #bac9dd;border-radius:.55rem}
+dl div{padding:.75rem}
+dt{font-weight:600}
+dd{margin:0;font-size:1.65rem}
+table{width:100%;border-spacing:0;text-align:left;overflow:hidden}
+th,td{padding:.75rem .6rem;border-bottom:1px solid #dae1eb;overflow-wrap:anywhere}
+tr:last-child td{border-bottom:0}
+thead{background:#dfe9f6}
+a{color:#1c528f}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p><a href="https://www.rfc-editor.org/info/rfc24">RFC 24</a> · Distribution audit</p>
+<h1>{{.Title}}</h1>
+<p>This fictional register expects one dispatch per listed team. Counts reflect recorded copies.</p>
+</header>
+<dl>
+<div><dt>Matched</dt><dd>{{.Matched}}</dd></div>
+<div><dt>Missing</dt><dd>{{.Missing}}</dd></div>
+<div><dt>Duplicate</dt><dd>{{.Duplicate}}</dd></div>
+<div><dt>Unexpected</dt><dd>{{.Unexpected}}</dd></div>
+</dl>
+<h2>Recipient ledger</h2>
+<table>
+<thead><tr><th scope="col">Recipient</th><th scope="col">Expected</th><th scope="col">Recorded</th><th scope="col">Status</th></tr></thead>
+<tbody>{{range .Recipients}}
+<tr><td>{{.ID}}</td><td>{{.Expected}}</td><td>{{.Recorded}}</td><td>{{.Status}}</td></tr>{{end}}
+</tbody>
+</table>
+<p><a href="https://github.com/Sreenivas-Sadhu-Prabhakara/rfc-0024-memo-register">Go source and run instructions</a></p>
+</main>
+</body>
+</html>
+`))

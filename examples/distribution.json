@@ -1,0 +1,5 @@
+{
+  "title": "Payments API cutover memo",
+  "roster": ["api-governance", "gateway-ops", "core-banking"],
+  "copies": ["api-governance", "gateway-ops", "gateway-ops", "unknown-team"]
+}
