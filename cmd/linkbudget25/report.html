@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFC 25 link budget lab</title>
+<style>
+body{margin:auto;max-width:56rem;padding:2rem 1rem;color:#192b40;background:#f5f6f8;font:1rem/1.55 system-ui,sans-serif}
+h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.1}
+table{border-collapse:collapse;background:white;width:100%}
+th,td{padding:.5rem;text-align:left;border:1px solid #a9bacb}
+thead{background:#e1eaf5}
+a{color:#184e86}
+</style>
+<main>
+<p><a href="https://www.rfc-editor.org/info/rfc25/">RFC 25</a> · Go lab</p>
+<h1>How wide should a link table be?</h1>
+<p>All three policies use an 8-bit ID space and reserve ID 255 for diagnostics in this model. The data table is sized to the chosen ceiling, including slot zero.</p>
+<table>
+<caption>Classification of the same trace under three policies</caption>
+<thead><tr><th scope="col">Data ID ceiling</th><th scope="col">Table slots</th><th scope="col">Data</th><th scope="col">Diagnostics</th><th scope="col">Unassigned</th><th scope="col">Invalid</th></tr></thead>
+<tbody>{{range .}}
+<tr><th scope="row">{{.Ceiling}}</th><td>{{.TableSlots}}</td><td>{{.Data}}</td><td>{{.Diagnostics}}</td><td>{{.Unassigned}}</td><td>{{.Invalid}}</td></tr>{{end}}
+</tbody>
+</table>
+<p>The 64-slot table uses about 75% fewer data slots than the 255-slot baseline. The unassigned column shows how many observations each policy excludes. Repeated IDs count as separate events.</p>
+<p><a href="https://github.com/Sreenivas-Sadhu-Prabhakara/rfc-0024-memo-register/tree/main/cmd/linkbudget25">Go source, sample input, and run instructions</a></p>
+</main>
+</html>

@@ -31,3 +31,7 @@ go run ./cmd/memo24 -html < examples/distribution.json | diff -u docs/index.html
 The HTML report under `docs/` is generated from the example. [Open the hosted sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/).
 
 MIT licensed. Next in the series is [RFC 25, No High Link Numbers](https://www.rfc-editor.org/info/rfc25).
+
+## RFC 25 companion lab
+
+[Link budget lab](cmd/linkbudget25) compares three direct-index table sizes against one synthetic trace. [Open the hosted sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc25/).
