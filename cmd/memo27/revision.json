@@ -1,0 +1,30 @@
+{
+  "revision": 3,
+  "roster": [
+    "payments-core",
+    "gateway-ops",
+    "risk-review"
+  ],
+  "dispatches": [
+    {
+      "site": "gateway-ops",
+      "revision": 3
+    },
+    {
+      "site": "payments-core",
+      "revision": 2
+    },
+    {
+      "site": "gateway-ops",
+      "revision": 1
+    },
+    {
+      "site": "former-owner",
+      "revision": 2
+    },
+    {
+      "site": "payments-core",
+      "revision": 2
+    }
+  ]
+}

@@ -35,3 +35,7 @@ MIT licensed. Next in the series is [RFC 25, No High Link Numbers](https://www.r
 ## RFC 25 companion lab
 
 [Link budget lab](cmd/linkbudget25) compares three direct-index table sizes against one synthetic trace. [Open the hosted sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc25/).
+
+## RFC 27 companion lab
+
+[Memo circulation planner](cmd/memo27) shows who still needs a copy of the current revision. [Open the hosted sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc27/).
