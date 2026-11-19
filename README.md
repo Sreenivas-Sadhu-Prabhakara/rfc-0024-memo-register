@@ -39,3 +39,7 @@ MIT licensed. Next in the series is [RFC 25, No High Link Numbers](https://www.r
 ## RFC 27 companion lab
 
 [Memo circulation planner](cmd/memo27) shows who still needs a copy of the current revision. [Open the hosted sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc27/).
+
+## RFC 28 companion lab
+
+[Clock accuracy lab](cmd/clock28) checks a latency budget using timestamp error bounds. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc28/).

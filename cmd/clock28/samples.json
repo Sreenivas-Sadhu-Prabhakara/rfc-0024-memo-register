@@ -1,0 +1,33 @@
+{
+  "budget_us": 10000,
+  "samples": [
+    {
+      "name": "Tight clocks",
+      "sent_us": 100000,
+      "received_us": 108000,
+      "sender_error_us": 1000,
+      "receiver_error_us": 1000
+    },
+    {
+      "name": "Loose clocks",
+      "sent_us": 100000,
+      "received_us": 108000,
+      "sender_error_us": 6000,
+      "receiver_error_us": 6000
+    },
+    {
+      "name": "Slow request",
+      "sent_us": 100000,
+      "received_us": 115000,
+      "sender_error_us": 1000,
+      "receiver_error_us": 1000
+    },
+    {
+      "name": "Contradictory clocks",
+      "sent_us": 100000,
+      "received_us": 98000,
+      "sender_error_us": 250,
+      "receiver_error_us": 250
+    }
+  ]
+}
