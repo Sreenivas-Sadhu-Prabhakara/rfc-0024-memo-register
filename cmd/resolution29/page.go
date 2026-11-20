@@ -1,0 +1,39 @@
+package main
+
+import "html/template"
+
+var page = template.Must(template.New("report").Parse(`<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clock resolution and latency | RFC 29 lab</title>
+<style>
+body{margin:0;background:#f3f6fa;color:#182c43;font:1rem/1.55 system-ui,sans-serif}
+main{max-width:64rem;margin:auto;padding:clamp(1rem,4vw,3rem)}
+h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15}
+h2{font-size:1.25rem;margin:1.3rem 0 .5rem}
+table{border-collapse:collapse;background:white;width:100%;text-align:left}
+th,td{padding:.5rem .65rem;border:1px solid #b6c8dc}
+thead{background:#dfeaf6}.scroll{overflow-x:auto}a{color:#174d84}
+</style>
+</head>
+<body>
+<main>
+<p><a href="https://www.rfc-editor.org/info/rfc29/">RFC 29</a> · Clock resolution lab</p>
+<h1>What can one clock tick hide?</h1>
+<p>The same requests are measured using three ideal clock resolutions. Both timestamps are rounded down to a tick boundary before subtraction.</p>
+{{range .Clocks}}
+<h2>{{.TickUS}} µs ticks</h2>
+<div class="scroll"><table>
+<thead><tr><th scope="col">Request</th><th scope="col">Actual RTT µs</th><th scope="col">Measured RTT µs</th><th scope="col">Error µs</th></tr></thead>
+<tbody>{{range .Measurements}}
+<tr><th scope="row">{{.Name}}</th><td>{{.ActualUS}}</td><td>{{.MeasuredUS}}</td><td>{{printf "%+d" .ErrorUS}}</td></tr>{{end}}
+</tbody>
+</table></div>{{end}}
+<p>Tick size limits what a single observation can distinguish. Start phase affects the error. These synthetic clocks share a perfect rate and have unbounded counters.</p>
+<p><a href="https://github.com/Sreenivas-Sadhu-Prabhakara/rfc-0024-memo-register/tree/main/cmd/resolution29">Go source, model assumptions, and run instructions</a></p>
+</main>
+</body>
+</html>
+`))

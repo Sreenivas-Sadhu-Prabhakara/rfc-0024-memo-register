@@ -1,0 +1,19 @@
+{
+  "samples": [
+    {
+      "name": "Fast API",
+      "start_us": 900,
+      "rtt_us": 800
+    },
+    {
+      "name": "Service call",
+      "start_us": 900,
+      "rtt_us": 15000
+    },
+    {
+      "name": "Long network path",
+      "start_us": 900,
+      "rtt_us": 120000
+    }
+  ]
+}

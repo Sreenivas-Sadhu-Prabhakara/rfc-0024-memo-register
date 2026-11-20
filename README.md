@@ -43,3 +43,7 @@ MIT licensed. Next in the series is [RFC 25, No High Link Numbers](https://www.r
 ## RFC 28 companion lab
 
 [Clock accuracy lab](cmd/clock28) checks a latency budget using timestamp error bounds. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc28/).
+
+## RFC 29 companion lab
+
+[Clock resolution lab](cmd/resolution29) compares identical synthetic RTTs across three clock tick sizes. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc29/).
