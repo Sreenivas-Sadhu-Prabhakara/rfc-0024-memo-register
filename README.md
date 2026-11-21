@@ -47,3 +47,7 @@ MIT licensed. Next in the series is [RFC 25, No High Link Numbers](https://www.r
 ## RFC 29 companion lab
 
 [Clock resolution lab](cmd/resolution29) compares identical synthetic RTTs across three clock tick sizes. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc29/).
+
+## RFC 30 companion lab
+
+[Memo directory checker](cmd/directory30) reconciles roster contacts with directory records before planning a circulation. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc30/).

@@ -1,0 +1,33 @@
+{
+  "roster": [
+    {
+      "site": "gateway-ops",
+      "name": "Gateway Team"
+    },
+    {
+      "site": "core-payments",
+      "name": "Payments Owner"
+    },
+    {
+      "site": "fraud-review",
+      "name": "Fraud Reviewer"
+    }
+  ],
+  "directory": [
+    {
+      "site": "gateway-ops",
+      "name": "Gateway Team",
+      "mailbox": "gateway@example.invalid"
+    },
+    {
+      "site": "core-payments",
+      "name": "Legacy Payments",
+      "mailbox": "old-payments@example.invalid"
+    },
+    {
+      "site": "archived-team",
+      "name": "Former Owner",
+      "mailbox": "former@example.invalid"
+    }
+  ]
+}

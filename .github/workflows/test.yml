@@ -18,3 +18,4 @@ jobs:
       - run: go run ./cmd/memo27 -html < cmd/memo27/revision.json | diff -u docs/rfc27/index.html -
       - run: go run ./cmd/clock28 -html < cmd/clock28/samples.json | diff -u docs/rfc28/index.html -
       - run: go run ./cmd/resolution29 -html < cmd/resolution29/samples.json | diff -u docs/rfc29/index.html -
+      - run: go run ./cmd/directory30 -html < cmd/directory30/directory.json | diff -u docs/rfc30/index.html -
