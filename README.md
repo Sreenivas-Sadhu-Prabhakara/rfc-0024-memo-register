@@ -51,3 +51,7 @@ MIT licensed. Next in the series is [RFC 25, No High Link Numbers](https://www.r
 ## RFC 30 companion lab
 
 [Memo directory checker](cmd/directory30) reconciles roster contacts with directory records before planning a circulation. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc30/).
+
+## RFC 31 companion lab
+
+[Symbolic binary fields lab](cmd/fields31) encodes named unsigned fields, shows offsets and emitted bits, and decodes the packed bytes. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc31/).

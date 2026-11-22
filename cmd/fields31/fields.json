@@ -1,0 +1,19 @@
+{
+  "fields": [
+    {
+      "name": "VERSION",
+      "bits": 3,
+      "value": 5
+    },
+    {
+      "name": "STATUS",
+      "bits": 5,
+      "value": 17
+    },
+    {
+      "name": "REQUEST_ID",
+      "bits": 9,
+      "value": 257
+    }
+  ]
+}
