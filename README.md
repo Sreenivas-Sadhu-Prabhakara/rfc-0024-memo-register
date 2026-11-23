@@ -55,3 +55,7 @@ MIT licensed. Next in the series is [RFC 25, No High Link Numbers](https://www.r
 ## RFC 31 companion lab
 
 [Symbolic binary fields lab](cmd/fields31) encodes named unsigned fields, shows offsets and emitted bits, and decodes the packed bytes. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc31/).
+
+## RFC 32 companion lab
+
+[Host tracing lab](cmd/trace32) compares local host spans with timestamp differences across unsynchronized clocks. [Open the static sample](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc32/).

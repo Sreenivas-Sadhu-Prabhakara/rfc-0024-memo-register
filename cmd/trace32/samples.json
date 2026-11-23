@@ -1,0 +1,22 @@
+{
+  "queue_us": 5000,
+  "network_us": 8000,
+  "service_us": 10000,
+  "clocks": [
+    {
+      "name": "Aligned clocks",
+      "source_offset_us": 100000,
+      "destination_offset_us": 100000
+    },
+    {
+      "name": "Receiver behind",
+      "source_offset_us": 50000,
+      "destination_offset_us": -50000
+    },
+    {
+      "name": "Receiver ahead",
+      "source_offset_us": -50000,
+      "destination_offset_us": 50000
+    }
+  ]
+}
