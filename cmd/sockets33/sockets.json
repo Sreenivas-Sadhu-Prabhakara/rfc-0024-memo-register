@@ -1,0 +1,45 @@
+{
+  "cases": [
+    {
+      "name": "Receive and relabel",
+      "local": {
+        "user": 0,
+        "host": 2,
+        "aen": 0
+      },
+      "remote": {
+        "user": 65541,
+        "host": 1,
+        "aen": 7
+      },
+      "relabel_aen": 88
+    },
+    {
+      "name": "Same direction",
+      "local": {
+        "user": 0,
+        "host": 2,
+        "aen": 0
+      },
+      "remote": {
+        "user": 65541,
+        "host": 1,
+        "aen": 6
+      }
+    },
+    {
+      "name": "Relabel changes direction",
+      "local": {
+        "user": 0,
+        "host": 2,
+        "aen": 0
+      },
+      "remote": {
+        "user": 65541,
+        "host": 1,
+        "aen": 7
+      },
+      "relabel_aen": 89
+    }
+  ]
+}
