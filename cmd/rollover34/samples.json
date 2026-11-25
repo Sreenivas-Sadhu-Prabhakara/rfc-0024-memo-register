@@ -1,0 +1,32 @@
+{
+  "samples": [
+    {
+      "name": "One boundary crossing",
+      "start": 16777213,
+      "end": 4,
+      "tick_us": 100,
+      "max_advance_ticks": 100
+    },
+    {
+      "name": "Same readings, wider bound",
+      "start": 16777213,
+      "end": 4,
+      "tick_us": 100,
+      "max_advance_ticks": 16777223
+    },
+    {
+      "name": "Bound contradicts readings",
+      "start": 16777213,
+      "end": 4,
+      "tick_us": 100,
+      "max_advance_ticks": 6
+    },
+    {
+      "name": "Equal readings hide a wrap",
+      "start": 42,
+      "end": 42,
+      "tick_us": 1000,
+      "max_advance_ticks": 16777216
+    }
+  ]
+}

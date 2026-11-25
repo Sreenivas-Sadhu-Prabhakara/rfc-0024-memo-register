@@ -65,3 +65,9 @@ MIT licensed. Next in the series is [RFC 25, No High Link Numbers](https://www.r
 Covered RFC 33; next RFC 34. [Go source, tests, and run instructions](cmd/sockets33/) · [Hosted static report](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc33/).
 
 Educational naming and direction inspector; no NCP implementation or live backend. RFC 33 has Unknown status, obsoletes RFC 11, and is updated by RFCs 36 and 47. Standalone repository creation remains pending GitHub browser sign-in; source is preserved here under MIT.
+
+## RFC 34 — Counter rollover lab
+
+Covered RFC 34; next RFC 35. [Go source, tests, and run instructions](cmd/rollover34/) · [Hosted static report](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc34/).
+
+Educational 24-bit counter model: bounded reconstruction, ambiguous wraps, and contradictory assumptions. No hardware emulation or live backend. Source is MIT-licensed; standalone repository creation remains pending unavailable creation access.

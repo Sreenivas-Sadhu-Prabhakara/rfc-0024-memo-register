@@ -22,3 +22,4 @@ jobs:
       - run: go run ./cmd/fields31 -html < cmd/fields31/fields.json | diff -u docs/rfc31/index.html -
       - run: go run ./cmd/trace32 -html < cmd/trace32/samples.json | diff -u docs/rfc32/index.html -
       - run: go run ./cmd/sockets33 -html < cmd/sockets33/sockets.json | diff -u docs/rfc33/index.html -
+      - run: go run ./cmd/rollover34 -html < cmd/rollover34/samples.json | diff -u docs/rfc34/index.html -
