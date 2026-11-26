@@ -1,0 +1,81 @@
+{
+  "meetings": [
+    {
+      "name": "Banking API design review",
+      "draft_revision": "v3",
+      "sites": [
+        "API",
+        "Security",
+        "Operations"
+      ],
+      "delegates": [
+        {
+          "site": "API",
+          "name": "API delegate",
+          "reviewed_revision": "v3"
+        },
+        {
+          "site": "Security",
+          "name": "Security delegate",
+          "reviewed_revision": "v3"
+        },
+        {
+          "site": "Operations",
+          "name": "Operations delegate",
+          "reviewed_revision": "v3"
+        }
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Cloud migration review",
+      "draft_revision": "v3",
+      "sites": [
+        "API",
+        "Security",
+        "Operations"
+      ],
+      "delegates": [
+        {
+          "site": "API",
+          "name": "API delegate",
+          "reviewed_revision": "v3"
+        },
+        {
+          "site": "API",
+          "name": "Second API delegate",
+          "reviewed_revision": "v3"
+        },
+        {
+          "site": "Vendor",
+          "name": "Vendor delegate",
+          "reviewed_revision": "v3"
+        }
+      ],
+      "blockers": []
+    },
+    {
+      "name": "Revised protocol workshop",
+      "draft_revision": "v3",
+      "sites": [
+        "API",
+        "Security"
+      ],
+      "delegates": [
+        {
+          "site": "API",
+          "name": "API delegate",
+          "reviewed_revision": "v2"
+        },
+        {
+          "site": "Security",
+          "name": "Security delegate",
+          "reviewed_revision": ""
+        }
+      ],
+      "blockers": [
+        "Retry semantics unresolved"
+      ]
+    }
+  ]
+}

@@ -71,3 +71,9 @@ Educational naming and direction inspector; no NCP implementation or live backen
 Covered RFC 34; next RFC 35. [Go source, tests, and run instructions](cmd/rollover34/) · [Hosted static report](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc34/).
 
 Educational 24-bit counter model: bounded reconstruction, ambiguous wraps, and contradictory assumptions. No hardware emulation or live backend. Source is MIT-licensed; standalone repository creation remains pending unavailable creation access.
+
+## RFC 35 — Review readiness checker
+
+Covered RFC 35; next RFC 36. [Go source, tests, and run instructions](cmd/review35/) · [Hosted static report](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc35/).
+
+An educational tool inspired by an administrative meeting notice: checks representation, current draft review, and blocker records. It defines no historical protocol and grants no approval. Source is MIT-licensed; hosting is static. Standalone repository creation remains pending: the connector lacks a create-repository operation, the CLI is signed out, and the browser requires GitHub sign-in.

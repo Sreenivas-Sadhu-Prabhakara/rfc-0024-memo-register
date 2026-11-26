@@ -1,0 +1,132 @@
+package main
+
+import (
+	"fmt"
+	"html/template"
+	"sort"
+	"strings"
+)
+
+type Delegate struct {
+	Site             string `json:"site"`
+	Name             string `json:"name"`
+	ReviewedRevision string `json:"reviewed_revision"`
+}
+type Meeting struct {
+	Name          string     `json:"name"`
+	DraftRevision string     `json:"draft_revision"`
+	Sites         []string   `json:"sites"`
+	Delegates     []Delegate `json:"delegates"`
+	Blockers      []string   `json:"blockers"`
+}
+type Scenario struct {
+	Meetings []Meeting `json:"meetings"`
+}
+type Result struct {
+	Name          string   `json:"name"`
+	DraftRevision string   `json:"draft_revision"`
+	Missing       []string `json:"missing_sites"`
+	Multiple      []string `json:"multiple_delegates"`
+	Unexpected    []string `json:"unexpected_sites"`
+	Stale         []string `json:"unreviewed_current_revision"`
+	Blockers      []string `json:"blockers"`
+	Decision      string   `json:"decision"`
+}
+type Report struct {
+	Results []Result `json:"results"`
+}
+
+func label(s string) bool { return s != "" && s == strings.TrimSpace(s) && len(s) <= 100 }
+func keys(m map[string]bool) []string {
+	r := []string{}
+	for k := range m {
+		r = append(r, k)
+	}
+	sort.Strings(r)
+	return r
+}
+func plan(s Scenario) (Report, error) {
+	r := Report{}
+	if len(s.Meetings) == 0 || len(s.Meetings) > 50 {
+		return r, fmt.Errorf("expected 1–50 meetings")
+	}
+	names := map[string]bool{}
+	for _, m := range s.Meetings {
+		if !label(m.Name) || names[m.Name] || !label(m.DraftRevision) {
+			return Report{}, fmt.Errorf("meeting names must be unique; names and revisions must be trimmed 1–100 byte labels")
+		}
+		names[m.Name] = true
+		if len(m.Sites) == 0 || len(m.Sites) > 100 || len(m.Delegates) > 200 || len(m.Blockers) > 100 {
+			return Report{}, fmt.Errorf("%s: collection limit exceeded or empty roster", m.Name)
+		}
+		sites := map[string]bool{}
+		for _, site := range m.Sites {
+			if !label(site) || sites[site] {
+				return Report{}, fmt.Errorf("%s: invalid or repeated roster site", m.Name)
+			}
+			sites[site] = true
+		}
+		counts := map[string]int{}
+		unexpected := map[string]bool{}
+		stale := map[string]bool{}
+		for _, d := range m.Delegates {
+			if !label(d.Site) || !label(d.Name) || (d.ReviewedRevision != "" && !label(d.ReviewedRevision)) {
+				return Report{}, fmt.Errorf("%s: invalid delegate fields", m.Name)
+			}
+			counts[d.Site]++
+			if !sites[d.Site] {
+				unexpected[d.Site] = true
+			}
+			if d.ReviewedRevision != m.DraftRevision {
+				stale[d.Site] = true
+			}
+		}
+		row := Result{Name: m.Name, DraftRevision: m.DraftRevision, Missing: []string{}, Multiple: []string{}, Unexpected: keys(unexpected), Stale: keys(stale), Blockers: append([]string{}, m.Blockers...), Decision: "ready to circulate"}
+		for site := range sites {
+			if counts[site] == 0 {
+				row.Missing = append(row.Missing, site)
+			}
+		}
+		for site, count := range counts {
+			if count > 1 {
+				row.Multiple = append(row.Multiple, site)
+			}
+		}
+		sort.Strings(row.Missing)
+		sort.Strings(row.Multiple)
+		for _, b := range m.Blockers {
+			if !label(b) {
+				return Report{}, fmt.Errorf("%s: invalid blocker label", m.Name)
+			}
+		}
+		if len(row.Missing)+len(row.Multiple)+len(row.Unexpected)+len(row.Stale)+len(row.Blockers) > 0 {
+			row.Decision = "hold"
+		}
+		r.Results = append(r.Results, row)
+	}
+	return r, nil
+}
+
+var page = template.Must(template.New("report").Funcs(template.FuncMap{"list": func(v []string) string {
+	if len(v) == 0 {
+		return "none"
+	}
+	return strings.Join(v, ", ")
+}}).Parse(`<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>RFC 35 · Review readiness</title>
+<style>body{font:18px system-ui;max-width:1050px;margin:3rem auto;padding:0 1rem;background:#f4f7fb;color:#172d44}article{background:white;border:1px solid #ccd6df;border-radius:10px;padding:1.3rem;margin:1rem 0}dt{font-weight:600}dd{margin:0 0 .65rem}a{color:#075fa3}</style>
+<h1>RFC 35 · Review readiness</h1>
+<p>The 1970 Network Meeting notice invited one programmer per site to examine the emerging host protocol before its planned documentation circulation.</p>
+<p>This modern educational exercise checks an explicit roster, one delegate per site, review of the current draft, and unresolved blockers. Its rules are teaching choices inspired by the notice.</p>
+{{range .Results}}<article><h2>{{.Name}} — {{.Decision}}</h2><p>Current draft: {{.DraftRevision}}</p><dl>
+<dt>Missing sites</dt><dd>{{list .Missing}}</dd>
+<dt>Multiple delegates</dt><dd>{{list .Multiple}}</dd>
+<dt>Unexpected sites</dt><dd>{{list .Unexpected}}</dd>
+<dt>Current revision not reviewed</dt><dd>{{list .Stale}}</dd>
+<dt>Unresolved blockers</dt><dd>{{list .Blockers}}</dd>
+</dl></article>{{end}}
+<p>“Ready” means these supplied records pass the exercise's rules. It is not approval, proof of design quality, or authority to publish. Human review and evidence remain necessary.</p>
+<p>Static report generated by the Go CLI; no live backend, messages, or publication actions. This administrative RFC defines no protocol implemented by this tool.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc35.txt">Official RFC 35</a> · <a href="https://github.com/Sreenivas-Sadhu-Prabhakara/rfc-0024-memo-register/tree/main/cmd/review35">Source and run instructions</a></p></html>
+`))
