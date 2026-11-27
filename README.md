@@ -77,3 +77,9 @@ Educational 24-bit counter model: bounded reconstruction, ambiguous wraps, and c
 Covered RFC 35; next RFC 36. [Go source, tests, and run instructions](cmd/review35/) · [Hosted static report](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc35/).
 
 An educational tool inspired by an administrative meeting notice: checks representation, current draft review, and blocker records. It defines no historical protocol and grants no approval. Source is MIT-licensed; hosting is static. Standalone repository creation remains pending: the connector lacks a create-repository operation, the CLI is signed out, and the browser requires GitHub sign-in.
+
+## RFC 36 — Handshake readiness lab
+
+Covered RFC 36; next RFC 37. [Go source, tests, and run instructions](cmd/handshake36/) · [Hosted static report](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc36/).
+
+Educational establishment trace model with separate request receipt and acknowledgment observations. Checks local readiness and premature send probes; implements no complete NCP or live backend. Source is MIT-licensed. Standalone repository creation remains pending: the connector lacks a creation operation, the CLI is signed out, and the browser requires GitHub sign-in.

@@ -1,0 +1,78 @@
+{
+  "traces": [
+    {
+      "name": "Acknowledgment arrives before peer request",
+      "events": [
+        {
+          "peer": "A",
+          "action": "request"
+        },
+        {
+          "peer": "B",
+          "action": "request"
+        },
+        {
+          "peer": "A",
+          "action": "ack"
+        },
+        {
+          "peer": "A",
+          "action": "try_send"
+        },
+        {
+          "peer": "A",
+          "action": "receive_request"
+        },
+        {
+          "peer": "A",
+          "action": "try_send"
+        },
+        {
+          "peer": "B",
+          "action": "receive_request"
+        },
+        {
+          "peer": "B",
+          "action": "ack"
+        }
+      ]
+    },
+    {
+      "name": "Peer request arrives before local initiation",
+      "events": [
+        {
+          "peer": "B",
+          "action": "request"
+        },
+        {
+          "peer": "A",
+          "action": "receive_request"
+        },
+        {
+          "peer": "A",
+          "action": "request"
+        },
+        {
+          "peer": "B",
+          "action": "receive_request"
+        },
+        {
+          "peer": "A",
+          "action": "try_send"
+        },
+        {
+          "peer": "A",
+          "action": "ack"
+        },
+        {
+          "peer": "A",
+          "action": "try_send"
+        },
+        {
+          "peer": "B",
+          "action": "ack"
+        }
+      ]
+    }
+  ]
+}
