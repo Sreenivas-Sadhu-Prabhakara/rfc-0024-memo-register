@@ -1,0 +1,33 @@
+{
+  "policy": {
+    "stable_max": 31,
+    "experimental_min": 224
+  },
+  "entries": [
+    {
+      "name": "PAYMENT_ACCEPTED",
+      "code": 1,
+      "lifecycle": "stable"
+    },
+    {
+      "name": "RETRY_HINT_TRIAL",
+      "code": 255,
+      "lifecycle": "experimental"
+    },
+    {
+      "name": "DUPLICATE_STABLE_CODE",
+      "code": 1,
+      "lifecycle": "stable"
+    },
+    {
+      "name": "RESERVED_CODE_TRIAL",
+      "code": 64,
+      "lifecycle": "experimental"
+    },
+    {
+      "name": "STABLE_IN_EXPERIMENTAL_RANGE",
+      "code": 224,
+      "lifecycle": "stable"
+    }
+  ]
+}

@@ -25,3 +25,4 @@ jobs:
       - run: go run ./cmd/rollover34 -html < cmd/rollover34/samples.json | diff -u docs/rfc34/index.html -
       - run: go run ./cmd/review35 -html < cmd/review35/reviews.json | diff -u docs/rfc35/index.html -
       - run: go run ./cmd/handshake36 -html < cmd/handshake36/traces.json | diff -u docs/rfc36/index.html -
+      - run: go run ./cmd/registry37 -html < cmd/registry37/registry.json | diff -u docs/rfc37/index.html -

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>RFC 37 · Extension registry checker</title>
+<style>body{font:18px system-ui;max-width:1100px;margin:3rem auto;padding:0 1rem;background:#f4f7fb;color:#172d44}table{width:100%;border-collapse:collapse;background:white;margin:1rem 0}th,td{text-align:left;padding:.8rem;border:1px solid #ccd6df}a{color:#075fa3}</style>
+<h1>RFC 37 · Extension registry checker</h1>
+<p>A teaching exercise inspired by discussion about preserving space for extension and experimentation. This policy uses an 8-bit toy registry: stable codes 0–31, experimental codes 224–255, and a reserved gap.</p>
+<p>These boundaries are explicit exercise choices, not an RFC 37 standard allocation. No codes are allocated or registered externally.</p>
+<p><strong>Registry passes supplied policy: false</strong></p>
+<h2>Assignments</h2><table><thead><tr><th>Name</th><th>Code</th><th>Lifecycle</th><th>Range</th><th>Issues</th></tr></thead><tbody>
+<tr><td>PAYMENT_ACCEPTED</td><td>1</td><td>stable</td><td>stable</td><td>duplicate code</td></tr><tr><td>RETRY_HINT_TRIAL</td><td>255</td><td>experimental</td><td>experimental</td><td>none</td></tr><tr><td>DUPLICATE_STABLE_CODE</td><td>1</td><td>stable</td><td>stable</td><td>duplicate code</td></tr><tr><td>RESERVED_CODE_TRIAL</td><td>64</td><td>experimental</td><td>reserved</td><td>assignment uses reserved space</td></tr><tr><td>STABLE_IN_EXPERIMENTAL_RANGE</td><td>224</td><td>stable</td><td>experimental</td><td>lifecycle does not match code range</td></tr></tbody></table>
+<h2>Space budget</h2><table><thead><tr><th>Range</th><th>Capacity</th><th>Occupied</th><th>Free</th></tr></thead><tbody>
+<tr><td>stable</td><td>32</td><td>1</td><td>31</td></tr><tr><td>reserved</td><td>192</td><td>1</td><td>191</td></tr><tr><td>experimental</td><td>32</td><td>2</td><td>30</td></tr></tbody></table>
+<p>Occupied counts distinct code values even when an assignment violates policy. Duplicate rows do not consume extra code points. Reserved free space is held aside, not available for assignment under this policy.</p>
+<p>This checker validates supplied registry records, not peer negotiation, interoperability, rollout safety, or standards compliance. Historical proposals are not production recommendations.</p>
+<p>Static Go-generated report, with no live backend. Run the CLI for custom input.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc37.txt">Official RFC 37</a> · <a href="https://github.com/Sreenivas-Sadhu-Prabhakara/rfc-0024-memo-register/tree/main/cmd/registry37">Source, tests and instructions</a></p></html>

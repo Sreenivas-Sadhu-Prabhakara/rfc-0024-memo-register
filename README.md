@@ -83,3 +83,9 @@ An educational tool inspired by an administrative meeting notice: checks represe
 Covered RFC 36; next RFC 37. [Go source, tests, and run instructions](cmd/handshake36/) · [Hosted static report](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc36/).
 
 Educational establishment trace model with separate request receipt and acknowledgment observations. Checks local readiness and premature send probes; implements no complete NCP or live backend. Source is MIT-licensed. Standalone repository creation remains pending: the connector lacks a creation operation, the CLI is signed out, and the browser requires GitHub sign-in.
+
+## RFC 37 — Extension registry checker
+
+Covered RFC 37; next RFC 38. [Go source, tests, and run instructions](cmd/registry37/) · [Hosted static report](https://sreenivas-sadhu-prabhakara.github.io/rfc-0024-memo-register/rfc37/).
+
+Educational checker for duplicate codes, lifecycle ranges, and reserved space in an 8-bit toy registry. Exact allocations are teaching choices, not an RFC protocol implementation. Source is MIT-licensed; hosting is static. Standalone repository creation remains pending: the connector lacks a creation operation, the CLI is signed out, and the browser requires GitHub sign-in.
